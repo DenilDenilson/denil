@@ -1,0 +1,43 @@
+<section-ext>
+  <li
+    class="flex h-12 cursor-pointer items-center gap-3 bg-slate-700 px-6 py-3"
+  >
+    <svg
+      class="transition-transform duration-200"
+      width="5"
+      height="8"
+      viewBox="0 0 5 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4.66699 4L0.666992 8L0.666992 0L4.66699 4Z" fill="#F8FAFC"
+      ></path>
+    </svg>
+    <span class="text-slate-50"> personal-info </span>
+  </li>
+  <div class="info max-h-0 overflow-hidden transition-all duration-300">
+    <p class="overflow-hidden px-6 py-3">
+      I am a web developer with a passion for creating dynamic and responsive
+      websites. I specialize in front-end development, focusing on user
+      experience and accessibility. My goal is to build applications that are
+      not only functional but also visually appealing and easy to use.
+    </p>
+  </div>
+</section-ext>
+
+<script>
+  class SectionExt extends HTMLElement {
+    connectedCallback() {
+      const liArea = this.querySelector("li");
+      const liIcon = this.querySelector("svg");
+      const info = this.querySelector(".info");
+
+      liArea?.addEventListener("click", () => {
+        liIcon?.classList.toggle("rotate-90");
+        info?.classList.toggle("max-h-80");
+      });
+    }
+  }
+
+  customElements.define("section-ext", SectionExt);
+</script>

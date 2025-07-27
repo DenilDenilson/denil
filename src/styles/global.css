@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'Fira';
+	src: url('/public/fonts/fira-code-latin-300-normal.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira';
+	src: url('/fonts/fira-code-latin-400-normal.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira';
+	src: url('/fonts/fira-code-latin-500-normal.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira';
+	src: url('/fonts/fira-code-latin-600-normal.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira';
+	src: url('/fonts/fira-code-latin-700-normal.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--color-theme-foreground: #90a1b9;
+	--color-theme-background: #0f172b;
+	--color-theme-stroke: #314158;
+	--color-heading-foreground: #f8fafc;
+
+	--color-indigo-500: #615fff;
+	--color-teal-400: #00d5be;
+	--color-link-foreground: #ffa1ad;
+}
+
+body {
+	font-family: 'Fira', sans-serif;
+	color: var(--color-theme-foreground);
+}

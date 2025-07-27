@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BlobGreen from "../components/BlobGreen.astro";
+import BlobViolet from "../components/BlobViolet.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <main class="flex flex-1 flex-col justify-center gap-16 py-4 pr-4 pl-6">
+    <hgroup class="">
+      <h5 class="relative mb-1 text-lg">
+        Hi all. I am
+        <div class="absolute top-0 left-0">
+          <BlobGreen />
+        </div>
+      </h5>
+      <h1 class="text-heading-foreground mb-4 text-5xl leading-16">
+        Denilson Trujillo
+      </h1>
+      <h3 class="text-xl text-indigo-500">&#62 Full-Stack developer</h3>
+    </hgroup>
+    <section>
+      <h5 class="relative mb-4">
+        &#47&#47 find my profile on Github
+        <div class="absolute -top-20 left-48">
+          <BlobViolet />
+        </div>
+      </h5>
+      <p>
+        <span class="text-indigo-500">const</span>
+        <span class="text-teal-400">githublink</span>
+        =
+        <a
+          href="https://github.com/DenilDenilson"
+          class="text-link-foreground cursor-pointer"
+          >https://github.com/DenilDenilson</a
+        >
+      </p>
+    </section>
+  </main>
 </Layout>

@@ -1,0 +1,94 @@
+---
+import ChipIcon from "../icons/ChipIcon.astro";
+import LaptopIcon from "../icons/LaptopIcon.astro";
+import WebIcon from "../icons/WebIcon.astro";
+---
+
+<section-ext>
+  <li
+    class="flex h-12 cursor-pointer items-center gap-3 bg-slate-700 px-6 py-3"
+  >
+    <svg
+      class="transition-transform duration-200"
+      width="5"
+      height="8"
+      viewBox="0 0 5 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4.66699 4L0.666992 8L0.666992 0L4.66699 4Z" fill="#F8FAFC"
+      ></path>
+    </svg>
+    <span class="text-slate-50"> Habilidades </span>
+  </li>
+  <div class="info max-h-80 overflow-hidden transition-all duration-300">
+    <ul class="flex flex-col gap-4 p-6">
+      <li class="flex items-center gap-3">
+        <input type="checkbox" id="webFilter" class="" />
+        <WebIcon />
+        <label for="webFilter" class="ml-3 text-white">Desarrollo Web</label>
+      </li>
+      <li class="flex items-center gap-3">
+        <input type="checkbox" id="embeddedFilter" class="" />
+        <ChipIcon />
+        <label for="embeddedFilter" class="ml-3 text-white"
+          >Sistemas Embebidos</label
+        >
+      </li>
+      <li class="flex items-center gap-3">
+        <input type="checkbox" id="softwareFilter" class="" />
+        <LaptopIcon />
+        <label for="softwareFilter" class="ml-3 text-white"
+          >Desarrollo de Software</label
+        >
+      </li>
+    </ul>
+  </div>
+</section-ext>
+
+<script>
+  class SectionExt extends HTMLElement {
+    connectedCallback() {
+      const liArea = this.querySelector("li");
+      const liIcon = this.querySelector("svg");
+      const info = this.querySelector(".info");
+
+      liArea?.addEventListener("click", () => {
+        liIcon?.classList.toggle("rotate-90");
+        info?.classList.toggle("max-h-0");
+        info?.classList.toggle("max-h-80");
+      });
+    }
+  }
+
+  customElements.define("section-ext", SectionExt);
+</script>
+
+<style>
+  input[type="checkbox"] {
+    appearance: none;
+    border: 2px solid var(--color-slate-500);
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: var(--color-slate-500);
+    border-color: var(--color-slate-500);
+  }
+
+  input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+</style>

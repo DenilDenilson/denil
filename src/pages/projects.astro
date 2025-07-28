@@ -1,0 +1,15 @@
+---
+import Filter from "../components/projects/Filter.astro";
+import ProjectsContainer from "../components/projects/ProjectsContainer.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main class="flex-1 pt-14">
+    <ul class="flex flex-col gap-1">
+      <p class="text-heading-foreground p-6 text-sm">_proyectos</p>
+      <Filter />
+    </ul>
+    <ProjectsContainer />
+  </main>
+</Layout>

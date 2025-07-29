@@ -13,24 +13,24 @@ import MobileNav from "./MobileNav.astro";
     >
     <MobileNav />
     <ul class="hidden w-full xl:flex xl:items-baseline">
-      <li
-        class="outline-theme-stroke nav-focus grid h-14 place-content-center outline"
-      >
-        <a class="px-8 py-4" href="/">_hello</a>
+      <li class="outline-theme-stroke grid h-14 place-content-center outline">
+        <a class="desktopLink px-8 py-4" href="/">_hello</a>
       </li>
       <li class="outline-theme-stroke grid h-14 place-content-center outline">
-        <a class="px-8 py-4" href="/experience">_experiencia</a>
+        <a class="desktopLink px-8 py-4" href="/experience">_experiencia</a>
       </li>
       <li class="outline-theme-stroke grid h-14 place-content-center outline">
-        <a class="px-8 py-4" href="/projects">_proyectos</a>
+        <a class="desktopLink px-8 py-4" href="/projects">_proyectos</a>
       </li>
       <li class="outline-theme-stroke grid h-14 place-content-center outline">
-        <a class="px-8 py-4" href="/about-me">_sobre-mi</a>
+        <a class="desktopLink px-8 py-4" href="/about-me">_sobre-mi</a>
       </li>
       <li
         class="outline-theme-stroke ml-auto grid h-14 place-content-center outline"
       >
-        <a class="ml-auto px-8 py-4" href="/contact-me">_contáctame</a>
+        <a class="desktopLink ml-auto px-8 py-4" href="/contact-me"
+          >_contáctame</a
+        >
       </li>
     </ul>
   </div>
@@ -41,3 +41,20 @@ import MobileNav from "./MobileNav.astro";
     border-bottom: 4px solid var(--color-primary-background);
   }
 </style>
+
+<script>
+  const pathname = window.location.pathname;
+
+  const navLinks = document.querySelectorAll(".desktopLink");
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === pathname) {
+      if (link.parentElement) {
+        link.parentElement.classList.add("nav-focus");
+      }
+    } else {
+      if (link.parentElement) {
+        link.parentElement.classList.remove("nav-focus");
+      }
+    }
+  });
+</script>

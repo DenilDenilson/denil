@@ -5,33 +5,39 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="flex flex-1 flex-col justify-center gap-16 py-4 pr-4 pl-6">
+  <main
+    class="flex flex-1 flex-col justify-center gap-16 py-4 pr-4 pl-6 xl:pl-[320px]"
+  >
     <hgroup class="">
-      <h5 class="relative mb-1 text-lg">
-        Hi all. I am
-        <div class="absolute top-0 left-0">
+      <h5 class="relative mb-1 text-lg xl:mb-3 xl:text-xl">
+        Hola, yo soy
+        <div class="absolute -top-32 left-96">
           <BlobGreen />
         </div>
       </h5>
-      <h1 class="text-heading-foreground mb-4 text-5xl leading-16">
+      <h1
+        class="text-heading-foreground mb-4 text-5xl leading-16 xl:mb-6 xl:text-7xl"
+      >
         Denilson Trujillo
       </h1>
-      <h3 class="text-xl text-indigo-500">&#62 Full-Stack developer</h3>
+      <h3 class="text-xl text-indigo-500 xl:text-3xl">
+        &#62 Full-Stack developer
+      </h3>
     </hgroup>
     <section>
-      <h5 class="relative mb-4">
+      <h5 class="relative mb-4 xl:text-xl">
         &#47&#47 find my profile on Github
-        <div class="absolute -top-20 left-48">
+        <div class="absolute -top-48 left-[600px]">
           <BlobViolet />
         </div>
       </h5>
-      <p>
-        <span class="text-indigo-500">const</span>
-        <span class="text-teal-400">githublink</span>
+      <p class="xl:text-2xl">
+        <span class="text-indigo-500 xl:text-xl">const</span>
+        <span class="text-teal-400 xl:text-xl">githublink</span>
         =
         <a
           href="https://github.com/DenilDenilson"
-          class="text-link-foreground cursor-pointer"
+          class="text-link-foreground cursor-pointer xl:text-xl"
           >https://github.com/DenilDenilson</a
         >
       </p>

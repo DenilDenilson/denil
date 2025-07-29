@@ -1,0 +1,53 @@
+---
+import Sections from "../components/contacme/Sections.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main class="flex flex-1 flex-col pt-14">
+    <ul class="flex flex-col gap-1">
+      <p class="text-heading-foreground p-6 text-sm">_contact-me</p>
+    </ul>
+    <Sections />
+    <!-- <div class="p-6">
+      <label for="nameContact" class="mb-2 block">_name:</label>
+      <input
+        type="text"
+        id="nameContact"
+        class="input bg-theme-backdrop border-theme-stroke input-bordered mb-6 h-12 w-full rounded-lg border-2 px-3 py-1"
+      />
+      <label for="emailContact" class="mb-2 block">_email:</label>
+      <input
+        type="email"
+        id="emailContact"
+        class="input bg-theme-backdrop border-theme-stroke input-bordered mb-6 h-12 w-full rounded-lg border-2 px-3 py-1"
+      />
+      <label for="messageContact" class="mb-2 block">_message:</label>
+      <input
+        type="text"
+        id="messageContact"
+        placeholder="Escribe tu mensaje aquí..."
+        class="input bg-theme-backdrop border-theme-stroke input-bordered mb-6 h-48 w-full rounded-lg border-2 px-3 py-1"
+      />
+      <button
+        type="submit"
+        class="h-10 w-36 rounded-lg bg-slate-500 text-center text-sm font-semibold text-slate-700"
+        >emviar-mensaje</button
+      >
+    </div> -->
+
+    <div
+      class="mx-auto flex max-w-96 flex-1 flex-col items-center justify-center gap-2 p-6"
+    >
+      <h3 class="text-heading-foreground text-2xl">¡Gracias! 🤞</h3>
+      <p class="text-center leading-relaxed">
+        Tu mensaje ha sido enviado, recibirá una respuesta pronto
+      </p>
+      <button
+        type="submit"
+        class="bg-primary-background text-primary-inverted mt-6 h-12 w-48 rounded-lg text-center text-sm font-semibold"
+        >emviar-nuevo-mensaje</button
+      >
+    </div>
+  </main>
+</Layout>

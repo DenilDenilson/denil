@@ -43,15 +43,21 @@
 @theme {
   --color-theme-foreground: #90a1b9;
   --color-theme-background: #0f172b;
+  --color-theme-backdrop: #020618;
   --color-theme-stroke: #314158;
   --color-heading-foreground: #f8fafc;
 
+  --color-primary-inverted: #020618;
+  --color-primary-background: #ffb86a;
+
   --color-indigo-500: #615fff;
+  --color-rose-400: #ff637e;
   --color-teal-400: #00d5be;
+  --color-teal-500: #00bba7;
   --color-link-foreground: #ffa1ad;
-  --color-slate-700: #314158;
   --color-slate-50: #f8fafc;
   --color-slate-500: #62748e;
+  --color-slate-700: #314158;
   --color-slate-950: #020618;
 }
 

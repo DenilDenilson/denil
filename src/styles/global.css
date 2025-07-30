@@ -55,10 +55,12 @@
   --color-teal-400: #00d5be;
   --color-teal-500: #00bba7;
   --color-link-foreground: #ffa1ad;
+  --color-orange-300: #ffb86a;
   --color-slate-50: #f8fafc;
   --color-slate-500: #62748e;
   --color-slate-700: #314158;
   --color-slate-950: #020618;
+  --color-purple-400: #c27aff;
 }
 
 body {

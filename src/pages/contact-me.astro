@@ -4,12 +4,12 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="flex flex-1 flex-col pt-14">
-    <ul class="flex flex-col gap-1">
+  <main class="flex flex-1 flex-col pt-14 xl:flex-row">
+    <ul class="flex flex-col gap-1 xl:hidden">
       <p class="text-heading-foreground p-6 text-sm">_contact-me</p>
     </ul>
     <Sections />
-    <!-- <div class="p-6">
+    <!-- <div class="p-6 xl:hidden">
       <label for="nameContact" class="mb-2 block">_name:</label>
       <input
         type="text"
@@ -37,7 +37,7 @@ import Layout from "../layouts/Layout.astro";
     </div> -->
 
     <div
-      class="mx-auto flex max-w-96 flex-1 flex-col items-center justify-center gap-2 p-6"
+      class="mx-auto flex max-w-96 flex-1 flex-col items-center justify-center gap-2 p-6 xl:hidden"
     >
       <h3 class="text-heading-foreground text-2xl">¡Gracias! 🤞</h3>
       <p class="text-center leading-relaxed">
@@ -49,5 +49,247 @@ import Layout from "../layouts/Layout.astro";
         >emviar-nuevo-mensaje</button
       >
     </div>
+
+    <section class="outline-theme-stroke hidden w-72 outline xl:block">
+      <ul
+        class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
+      >
+        <svg
+          width="14"
+          height="13"
+          viewBox="0 0 14 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.6667 3.83333V11.8333C13.6667 12.2015 13.3682 12.5 13 12.5H0.999995C0.631808 12.5 0.333328 12.2015 0.333328 11.8333V3.16667H13C13.3682 3.16667 13.6667 3.46515 13.6667 3.83333ZM7.27613 1.83333H0.333328V1.16667C0.333328 0.79848 0.631808 0.5 0.999995 0.5H5.94279L7.27613 1.83333Z"
+            fill="#00D5BE"></path>
+        </svg>
+        <span> Contacto </span>
+      </ul>
+      <ul class="flex flex-col gap-2 py-3 pr-3 pl-6">
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="14"
+            height="12"
+            viewBox="0 0 14 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.999674 0H12.9997C13.1765 0 13.3461 0.0702379 13.4711 0.195262C13.5961 0.320286 13.6663 0.489856 13.6663 0.666667V11.3333C13.6663 11.5101 13.5961 11.6797 13.4711 11.8047C13.3461 11.9298 13.1765 12 12.9997 12H0.999674C0.822863 12 0.653294 11.9298 0.52827 11.8047C0.403246 11.6797 0.333008 11.5101 0.333008 11.3333V0.666667C0.333008 0.489856 0.403246 0.320286 0.52827 0.195262C0.653294 0.0702379 0.822863 0 0.999674 0V0ZM7.03967 5.78867L2.76501 2.15867L1.90167 3.17467L7.04834 7.54467L12.1023 3.17133L11.2303 2.16267L7.04034 5.78867H7.03967Z"
+              fill="#62748E"></path>
+          </svg>
+          <a href="">denildenilson@gmail.com</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="14"
+            height="12"
+            viewBox="0 0 14 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.999674 0H12.9997C13.1765 0 13.3461 0.0702379 13.4711 0.195262C13.5961 0.320286 13.6663 0.489856 13.6663 0.666667V11.3333C13.6663 11.5101 13.5961 11.6797 13.4711 11.8047C13.3461 11.9298 13.1765 12 12.9997 12H0.999674C0.822863 12 0.653294 11.9298 0.52827 11.8047C0.403246 11.6797 0.333008 11.5101 0.333008 11.3333V0.666667C0.333008 0.489856 0.403246 0.320286 0.52827 0.195262C0.653294 0.0702379 0.822863 0 0.999674 0V0ZM7.03967 5.78867L2.76501 2.15867L1.90167 3.17467L7.04834 7.54467L12.1023 3.17133L11.2303 2.16267L7.04034 5.78867H7.03967Z"
+              fill="#62748E"></path>
+          </svg>
+          <a href="">jdtrujillos@uni.pe</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 8.94667V11.304C12.0001 11.4728 11.9361 11.6353 11.8211 11.7588C11.706 11.8823 11.5484 11.9575 11.38 11.9693C11.0887 11.9893 10.8507 12 10.6667 12C4.77533 12 0 7.22467 0 1.33333C0 1.14933 0.01 0.911334 0.0306667 0.62C0.0424816 0.451629 0.117721 0.294007 0.241202 0.178939C0.364684 0.0638712 0.527215 -7.62887e-05 0.696 1.71053e-07H3.05333C3.13603 -8.35563e-05 3.2158 0.0305727 3.27715 0.0860136C3.33851 0.141455 3.37706 0.217722 3.38533 0.3C3.40067 0.453334 3.41467 0.575333 3.428 0.668C3.56049 1.59262 3.832 2.49189 4.23333 3.33533C4.29667 3.46867 4.25533 3.628 4.13533 3.71333L2.69667 4.74133C3.5763 6.79097 5.2097 8.42436 7.25933 9.304L8.286 7.868C8.32796 7.80933 8.38919 7.76725 8.459 7.7491C8.52881 7.73095 8.60277 7.73787 8.668 7.76867C9.51135 8.16924 10.4104 8.44008 11.3347 8.572C11.4273 8.58533 11.5493 8.6 11.7013 8.61467C11.7835 8.62309 11.8596 8.66171 11.9149 8.72305C11.9702 8.78439 12.0008 8.86408 12.0007 8.94667H12Z"
+              fill="#62748E"></path>
+          </svg>
+
+          <a href="">+51 933 156 539</a>
+        </li>
+      </ul>
+      <ul
+        class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
+      >
+        <svg
+          width="14"
+          height="13"
+          viewBox="0 0 14 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.6667 3.83333V11.8333C13.6667 12.2015 13.3682 12.5 13 12.5H0.999995C0.631808 12.5 0.333328 12.2015 0.333328 11.8333V3.16667H13C13.3682 3.16667 13.6667 3.46515 13.6667 3.83333ZM7.27613 1.83333H0.333328V1.16667C0.333328 0.79848 0.631808 0.5 0.999995 0.5H5.94279L7.27613 1.83333Z"
+            fill="#FF637E"></path>
+        </svg>
+
+        <span> Encuentrame también </span>
+      </ul>
+      <div class="flex flex-col gap-2 px-6 py-3 pl-14">
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.66667 2V3.33333H1.33333V10.6667H8.66667V7.33333H10V11.3333C10 11.5101 9.92976 11.6797 9.80474 11.8047C9.67971 11.9298 9.51014 12 9.33333 12H0.666667C0.489856 12 0.320286 11.9298 0.195262 11.8047C0.0702379 11.6797 0 11.5101 0 11.3333V2.66667C0 2.48986 0.0702379 2.32029 0.195262 2.19526C0.320286 2.07024 0.489856 2 0.666667 2H4.66667ZM12 0V5.33333H10.6667V2.27533L5.47133 7.47133L4.52867 6.52867L9.72333 1.33333H6.66667V0H12Z"
+              fill="#F8FAFC"></path>
+          </svg>
+          <a href="">YouTube</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.66667 2V3.33333H1.33333V10.6667H8.66667V7.33333H10V11.3333C10 11.5101 9.92976 11.6797 9.80474 11.8047C9.67971 11.9298 9.51014 12 9.33333 12H0.666667C0.489856 12 0.320286 11.9298 0.195262 11.8047C0.0702379 11.6797 0 11.5101 0 11.3333V2.66667C0 2.48986 0.0702379 2.32029 0.195262 2.19526C0.320286 2.07024 0.489856 2 0.666667 2H4.66667ZM12 0V5.33333H10.6667V2.27533L5.47133 7.47133L4.52867 6.52867L9.72333 1.33333H6.66667V0H12Z"
+              fill="#F8FAFC"></path>
+          </svg>
+          <a href="">Instagram</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.66667 2V3.33333H1.33333V10.6667H8.66667V7.33333H10V11.3333C10 11.5101 9.92976 11.6797 9.80474 11.8047C9.67971 11.9298 9.51014 12 9.33333 12H0.666667C0.489856 12 0.320286 11.9298 0.195262 11.8047C0.0702379 11.6797 0 11.5101 0 11.3333V2.66667C0 2.48986 0.0702379 2.32029 0.195262 2.19526C0.320286 2.07024 0.489856 2 0.666667 2H4.66667ZM12 0V5.33333H10.6667V2.27533L5.47133 7.47133L4.52867 6.52867L9.72333 1.33333H6.66667V0H12Z"
+              fill="#F8FAFC"></path>
+          </svg>
+          <a href="">TikTok</a>
+        </li>
+        <li class="flex items-baseline gap-2">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.66667 2V3.33333H1.33333V10.6667H8.66667V7.33333H10V11.3333C10 11.5101 9.92976 11.6797 9.80474 11.8047C9.67971 11.9298 9.51014 12 9.33333 12H0.666667C0.489856 12 0.320286 11.9298 0.195262 11.8047C0.0702379 11.6797 0 11.5101 0 11.3333V2.66667C0 2.48986 0.0702379 2.32029 0.195262 2.19526C0.320286 2.07024 0.489856 2 0.666667 2H4.66667ZM12 0V5.33333H10.6667V2.27533L5.47133 7.47133L4.52867 6.52867L9.72333 1.33333H6.66667V0H12Z"
+              fill="#F8FAFC"></path>
+          </svg>
+          <a href="">LinkedIn</a>
+        </li>
+      </div>
+    </section>
+    <section class="hidden flex-1 flex-col xl:flex">
+      <ul class="flex h-12 gap-0"></ul>
+      <div
+        class="outline-theme-stroke grid flex-1 place-content-center px-8 py-3 leading-loose outline"
+      >
+        <div class="p-6">
+          <label for="nameContact" class="mb-2 block">_name:</label>
+          <input
+            type="text"
+            id="nameContact"
+            class="input bg-theme-backdrop border-theme-stroke input-bordered mb-6 h-12 w-full rounded-lg border-2 px-3 py-1"
+          />
+          <label for="emailContact" class="mb-2 block">_email:</label>
+          <input
+            type="email"
+            id="emailContact"
+            class="input bg-theme-backdrop border-theme-stroke input-bordered mb-6 h-12 w-full rounded-lg border-2 px-3 py-1"
+          />
+          <label for="messageContact" class="mb-2 block">_message:</label>
+          <input
+            type="text"
+            id="messageContact"
+            placeholder="Escribe tu mensaje aquí..."
+            class="input bg-theme-backdrop border-theme-stroke input-bordered mb-6 h-48 w-full rounded-lg border-2 px-3 py-1"
+          />
+          <button
+            type="submit"
+            class="h-10 w-36 rounded-lg bg-slate-500 text-center text-sm font-semibold text-slate-700"
+            >emviar-mensaje</button
+          >
+        </div>
+      </div>
+    </section>
+    <!-- <section class="hidden flex-1 xl:block">
+      <ul>Actual trabajo</ul>
+      <li>TARJETA DEL TRABAJO ACTUAL</li>
+    </section> -->
+    <section class="hidden flex-1 flex-col xl:flex">
+      <ul class="flex h-12 gap-0"></ul>
+      <div class="outline-theme-stroke flex-1 px-8 py-3 leading-loose outline">
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">1</span><span
+            class="text-purple-400">const &#32;</span
+          ><span class="text-indigo-500">button</span> = <span
+            class="text-indigo-500">document</span
+          >. <span class="text-indigo-500">querySelector</span>(<span
+            class="text-orange-300">'#sendBtn'</span
+          >);
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">2</span>
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">3</span><span
+            class="text-purple-400">const &#32;</span
+          ><span class="text-indigo-500">message</span> = <span>&#123;</span>
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">4</span><span
+            class="text-indigo-500">name:</span
+          ><span class="text-orange-300">"NAME"</span>,
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">5</span><span
+            class="text-indigo-500">email:</span
+          ><span class="text-orange-300">"email"</span>,
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">6</span><span
+            class="text-indigo-500">message:</span
+          ><span class="text-orange-300">"message"</span>,
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">7</span><span
+            class="text-indigo-500">date:</span
+          ><span class="text-orange-300">"date"</span>,
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">8</span><span
+            >&#125;</span
+          >
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">9</span>
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">10</span>
+          <span class="text-indigo-500">button</span>.<span
+            class="text-indigo-500">addEventListener</span
+          >(<span class="text-orange-300">'click'</span>, () =&#62; &#123;
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">11</span>
+          <span class="text-indigo-500">form</span>.<span
+            class="text-indigo-500">send</span
+          >(<span class="text-indigo-500">message</span>);
+        </div>
+        <div>
+          <span class="mr-4 inline-block w-4 text-right">12</span>
+          &#125;)
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

@@ -1,15 +1,61 @@
 ---
+import ChipIcon from "../components/icons/ChipIcon.astro";
+import LaptopIcon from "../components/icons/LaptopIcon.astro";
+import WebIcon from "../components/icons/WebIcon.astro";
 import Filter from "../components/projects/Filter.astro";
+import ProjectCard from "../components/projects/ProjectCard.astro";
 import ProjectsContainer from "../components/projects/ProjectsContainer.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="flex-1 pt-14">
-    <ul class="flex flex-col gap-1">
+  <main class="flex-1 pt-14 xl:flex">
+    <ul class="flex flex-col gap-1 xl:hidden">
       <p class="text-heading-foreground p-6 text-sm">_proyectos</p>
       <Filter />
     </ul>
     <ProjectsContainer />
+    <section class="outline-theme-stroke hidden w-72 outline xl:block">
+      <ul
+        class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
+      >
+        <span> Habilidades </span>
+      </ul>
+      <div class="info max-h-80 overflow-hidden transition-all duration-300">
+        <ul class="flex flex-col gap-4 p-6">
+          <li class="flex items-center gap-3">
+            <input type="checkbox" id="webFilter" class="" />
+            <WebIcon />
+            <label for="webFilter" class="">Desarr. Web</label>
+          </li>
+          <li class="flex items-center gap-3">
+            <input type="checkbox" id="embeddedFilter" class="" />
+            <ChipIcon />
+            <label for="embeddedFilter" class="">Sis. Embebidos</label>
+          </li>
+          <li class="flex items-center gap-3">
+            <input type="checkbox" id="softwareFilter" class="" />
+            <LaptopIcon />
+            <label for="softwareFilter" class="">Desarr. Software</label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="hidden flex-1 flex-col xl:flex">
+      <ul class="flex gap-0">
+        <p
+          class="outline-theme-stroke flex h-12 cursor-pointer items-center justify-between gap-8 px-3 outline"
+        >
+          <span class="inline-block w-48 truncate text-sm"> todos </span>
+        </p>
+      </ul>
+      <div class="outline-theme-stroke flex-1 p-16 leading-loose outline">
+        <section class="flex flex-wrap justify-start gap-16 p-6 xl:p-0">
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </section>
+      </div>
+    </section>
   </main>
 </Layout>

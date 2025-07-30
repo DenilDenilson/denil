@@ -3,16 +3,20 @@ import { Image } from "astro:assets";
 import imageBroken from "../../assets/images/image-broken.webp";
 ---
 
-<section class="">
-  <div class="aspect-[2/1] w-full overflow-hidden rounded-2xl bg-slate-950">
+<section class="xl:max-w-xs xl:overflow-hidden xl:rounded-2xl xl:bg-slate-950">
+  <div
+    class="aspect-[2/1] w-full overflow-hidden rounded-2xl bg-slate-950 xl:rounded-none"
+  >
     <Image
       src={imageBroken}
       alt="Image broken"
       class="h-full w-full object-cover"
     />
   </div>
-  <div class="py-6">
-    <h2 class="text-heading-foreground mb-4 text-2xl font-semibold">
+  <div class="py-6 xl:p-3">
+    <h2
+      class="text-heading-foreground mb-4 text-2xl font-semibold xl:line-clamp-2 xl:text-base"
+    >
       El nombre del proyecto puede ser algo largo
     </h2>
     <ul class="mb-2 flex flex-row gap-x-2">
@@ -81,7 +85,7 @@ import imageBroken from "../../assets/images/image-broken.webp";
         </span>
       </li>
     </ul>
-    <div class="mt-4 text-sm text-gray-700 dark:text-gray-400">
+    <div class="mt-4 text-sm text-gray-700 xl:hidden dark:text-gray-400">
       Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes.
       +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.
     </div>

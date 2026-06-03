@@ -1,72 +1,100 @@
+---
+const simpleIcon = (name: string, color = "90A1B9") =>
+  `https://cdn.simpleicons.org/${name}/${color}`;
+
+const socialLinks = [
+  {
+    label: "YouTube",
+    icon: simpleIcon("youtube", "FF0000"),
+  },
+  {
+    label: "Instagram",
+    icon: simpleIcon("instagram", "E4405F"),
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@ddedenil?_t=ZM-8yNyhwoZnaq&_r=1",
+    icon: simpleIcon("tiktok", "F8FAFC"),
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/DenilDenilson",
+    icon: simpleIcon("github", "F8FAFC"),
+  },
+];
+
+const cvPath = "/Denilson-Trujillo_CV-es.pdf";
+---
+
 <footer
-  class="outline-theme-stroke flex items-center justify-between pl-6 outline xl:justify-start"
+  class="outline-theme-stroke flex min-h-14 items-stretch justify-between outline"
 >
-  <p class="text-theme-foreground w-36 pr-6">find me in:</p>
-  <ul class="flex items-center xl:w-full">
-    <a
-      href="https://www.tiktok.com/@ddedenil?_t=ZM-8yNyhwoZnaq&_r=1"
-      target="_blank"
-      class="border-theme-stroke border-l p-4"
+  <div class="flex min-w-0 items-stretch">
+    <p
+      class="text-theme-foreground flex items-center px-5 text-sm sm:w-40 sm:px-6"
     >
-      <svg
-        width="22px"
-        height="22px"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-          <path
-            d="M16.8218 5.1344C16.0887 4.29394 15.648 3.19805 15.648 2H14.7293C14.9659 3.3095 15.7454 4.43326 16.8218 5.1344Z"
-            fill="#62748E"></path>
-          <path
-            d="M8.3218 11.9048C6.73038 11.9048 5.43591 13.2004 5.43591 14.7931C5.43591 15.903 6.06691 16.8688 6.98556 17.3517C6.64223 16.8781 6.43808 16.2977 6.43808 15.6661C6.43808 14.0734 7.73255 12.7778 9.324 12.7778C9.62093 12.7778 9.90856 12.8288 10.1777 12.9124V9.40192C9.89927 9.36473 9.61628 9.34149 9.324 9.34149C9.27294 9.34149 9.22654 9.34614 9.1755 9.34614V12.0394C8.90176 11.9558 8.61873 11.9048 8.3218 11.9048Z"
-            fill="#62748E"></path>
-          <path
-            d="M19.4245 6.67608V9.34614C17.6429 9.34614 15.9912 8.77501 14.6456 7.80911V14.7977C14.6456 18.2851 11.8108 21.127 8.32172 21.127C6.97621 21.127 5.7235 20.6998 4.69812 19.98C5.8534 21.2198 7.50049 22 9.32392 22C12.8083 22 15.6478 19.1627 15.6478 15.6707V8.68211C16.9933 9.64801 18.645 10.2191 20.4267 10.2191V6.78293C20.0787 6.78293 19.7446 6.74574 19.4245 6.67608Z"
-            fill="#62748E"></path>
-          <path
-            d="M14.6456 14.7977V7.80911C15.9912 8.77501 17.6429 9.34614 19.4245 9.34614V6.67608C18.3945 6.45788 17.4899 5.90063 16.8218 5.1344C15.7454 4.43326 14.9704 3.3095 14.7245 2H12.2098L12.2051 15.7775C12.1495 17.3192 10.8782 18.5591 9.32393 18.5591C8.35884 18.5591 7.50977 18.0808 6.98085 17.3564C6.06219 16.8688 5.4312 15.9076 5.4312 14.7977C5.4312 13.205 6.72567 11.9094 8.31708 11.9094C8.61402 11.9094 8.90168 11.9605 9.17079 12.0441V9.35079C5.75598 9.42509 3 12.2298 3 15.6707C3 17.3331 3.64492 18.847 4.69812 19.98C5.7235 20.6998 6.97621 21.127 8.32172 21.127C11.8061 21.127 14.6456 18.2851 14.6456 14.7977Z"
-            fill="#62748E"></path>
-        </g></svg
-      >
-    </a>
-    <a
-      href="https://www.linkedin.com/in/denilson-trujillo-4127692ba/"
-      target="_blank"
-      class="border-theme-stroke border-l p-4"
+      find me in:
+    </p>
+    <ul class="flex items-stretch">
+      {
+        socialLinks.map((social) => (
+          <li class="border-theme-stroke border-l">
+            {social.href ? (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.label}
+                title={social.label}
+                class="group grid h-full w-12 place-items-center transition hover:bg-slate-950 sm:w-14"
+              >
+                <img
+                  src={social.icon}
+                  alt=""
+                  loading="lazy"
+                  class="h-5 w-5 opacity-70 transition group-hover:scale-110 group-hover:opacity-100"
+                />
+              </a>
+            ) : (
+              <span
+                aria-label={`${social.label} sin enlace configurado`}
+                title={`${social.label} sin enlace configurado`}
+                class="grid h-full w-12 cursor-default place-items-center opacity-45 sm:w-14"
+              >
+                <img
+                  src={social.icon}
+                  alt=""
+                  loading="lazy"
+                  class="h-5 w-5"
+                />
+              </span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <a
+    href={cvPath}
+    download
+    class="border-theme-stroke group ml-auto flex items-center gap-2 border-l px-4 text-sm font-medium text-slate-50 transition hover:bg-slate-950 hover:text-primary-background sm:px-6"
+  >
+    <span class="hidden sm:inline">descargar-cv</span>
+    <span class="sm:hidden">cv</span>
+    <svg
+      class="h-5 w-5 text-theme-foreground transition group-hover:text-primary-background"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
-      <svg
-        width="20"
-        height="18"
-        viewBox="0 0 20 18"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4.94048 1.99993C4.94011 2.81424 4.44608 3.54702 3.69134 3.85273C2.9366 4.15845 2.07187 3.97605 1.5049 3.39155C0.93793 2.80704 0.78195 1.93715 1.1105 1.19207C1.43906 0.44699 2.18654 -0.0245006 3.00048 -7.061e-05C4.08155 0.0323794 4.94097 0.918369 4.94048 1.99993ZM5.00048 5.47993H1.00048V17.9999H5.00048V5.47993ZM11.3205 5.47993H7.34048V17.9999H11.2805V11.4299C11.2805 7.7699 16.0505 7.4299 16.0505 11.4299V17.9999H20.0005V10.0699C20.0005 3.89993 12.9405 4.12993 11.2805 7.1599L11.3205 5.47993Z"
-          fill="#62748E"></path>
-      </svg>
-    </a>
-    <a
-      target="_blank"
-      href="https://github.com/DenilDenilson"
-      class="border-theme-stroke ml-auto flex items-center gap-2 border-l p-4"
-    >
-      <span class="hidden xl:block">@denildenilson</span>
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10.001 0C4.47598 0 0.000976562 4.475 0.000976562 10C0.000976562 14.425 2.86348 18.1625 6.83848 19.4875C7.33848 19.575 7.52598 19.275 7.52598 19.0125C7.52598 18.775 7.51348 17.9875 7.51348 17.15C5.00098 17.6125 4.35098 16.5375 4.15098 15.975C4.03848 15.6875 3.55098 14.8 3.12598 14.5625C2.77598 14.375 2.27598 13.9125 3.11348 13.9C3.90098 13.8875 4.46348 14.625 4.65098 14.925C5.55098 16.4375 6.98848 16.0125 7.56348 15.75C7.65098 15.1 7.91348 14.6625 8.201 14.4125C5.97598 14.1625 3.65098 13.3 3.65098 9.475C3.65098 8.3875 4.03848 7.4875 4.67598 6.7875C4.57598 6.5375 4.22598 5.5125 4.77598 4.1375C4.77598 4.1375 5.61348 3.875 7.52598 5.1625C8.326 4.9375 9.176 4.825 10.026 4.825C10.876 4.825 11.726 4.9375 12.526 5.1625C14.4385 3.8625 15.276 4.1375 15.276 4.1375C15.826 5.5125 15.476 6.5375 15.376 6.7875C16.0135 7.4875 16.401 8.375 16.401 9.475C16.401 13.3125 14.0635 14.1625 11.8385 14.4125C12.201 14.725 12.5135 15.325 12.5135 16.2625C12.5135 17.6 12.501 18.675 12.501 19.0125C12.501 19.275 12.6885 19.5875 13.1885 19.4875C17.259 18.1133 19.9999 14.2963 20.001 10C20.001 4.475 15.526 0 10.001 0Z"
-          fill="#62748E"></path>
-      </svg>
-    </a>
-  </ul>
+      <path
+        d="M12 3v10m0 0 4-4m-4 4-4-4M5 16v3h14v-3"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </a>
 </footer>

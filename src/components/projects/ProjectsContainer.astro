@@ -1,9 +1,15 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+
+const { projects = [] } = Astro.props;
 ---
 
-<section class="flex flex-wrap justify-start gap-16 p-6 xl:hidden">
-  <ProjectCard />
-  <ProjectCard />
-  <ProjectCard />
+<section class="flex flex-col gap-6 p-6 xl:hidden">
+  {projects.map((project) => <ProjectCard project={project} />)}
 </section>
+<p
+  data-project-empty
+  class="text-heading-foreground hidden px-6 py-12 text-center xl:hidden"
+>
+  No hay proyectos para los filtros seleccionados.
+</p>

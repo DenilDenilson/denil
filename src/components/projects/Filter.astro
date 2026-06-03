@@ -19,26 +19,46 @@ import WebIcon from "../icons/WebIcon.astro";
       <path d="M4.66699 4L0.666992 8L0.666992 0L4.66699 4Z" fill="#F8FAFC"
       ></path>
     </svg>
-    <span class="text-slate-50"> Habilidades </span>
+    <span class="text-slate-50"> Filtros </span>
   </li>
   <div class="info max-h-80 overflow-hidden transition-all duration-300">
     <ul class="flex flex-col gap-4 p-6">
       <li class="flex items-center gap-3">
-        <input type="checkbox" id="webFilter" class="" />
+        <input
+          type="checkbox"
+          id="mobileWebFilter"
+          value="web"
+          data-project-filter
+          class=""
+        />
         <WebIcon />
-        <label for="webFilter" class="ml-3 text-white">Desarrollo Web</label>
+        <label for="mobileWebFilter" class="ml-3 text-white">
+          Desarrollo Web
+        </label>
       </li>
       <li class="flex items-center gap-3">
-        <input type="checkbox" id="embeddedFilter" class="" />
+        <input
+          type="checkbox"
+          id="mobileEmbeddedFilter"
+          value="embedded"
+          data-project-filter
+          class=""
+        />
         <ChipIcon />
-        <label for="embeddedFilter" class="ml-3 text-white"
+        <label for="mobileEmbeddedFilter" class="ml-3 text-white"
           >Sistemas Embebidos</label
         >
       </li>
       <li class="flex items-center gap-3">
-        <input type="checkbox" id="softwareFilter" class="" />
+        <input
+          type="checkbox"
+          id="mobileSoftwareFilter"
+          value="software"
+          data-project-filter
+          class=""
+        />
         <LaptopIcon />
-        <label for="softwareFilter" class="ml-3 text-white"
+        <label for="mobileSoftwareFilter" class="ml-3 text-white"
           >Desarrollo de Software</label
         >
       </li>

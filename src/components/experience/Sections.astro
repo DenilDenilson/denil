@@ -1,56 +1,66 @@
-<section-ext>
-  <li
-    class="flex h-12 cursor-pointer items-center gap-3 bg-slate-700 px-6 py-3"
-  >
-    <svg
-      class="transition-transform duration-200"
-      width="5"
-      height="8"
-      viewBox="0 0 5 8"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M4.66699 4L0.666992 8L0.666992 0L4.66699 4Z" fill="#F8FAFC"
-      ></path>
-    </svg>
-    <span class="text-slate-50"> MMJ Smart Electronics </span>
-    <span class="ml-auto text-sm text-slate-50"> Ago 2023 - Dic 2024 </span>
-  </li>
-  <div class="info max-h-80 overflow-hidden transition-all duration-300">
-    <p
-      class="flex items-baseline justify-between px-6 pt-6 text-sm text-slate-50"
-    >
-      <span> Desarrollador Full Stack </span>
-    </p>
-    <p class="overflow-hidden px-6 py-3">
-      Implementé funcionalidades de almacenamiento en base de datos PostgreSQL
-      en un software preexistente, optimizando su gestión de datos. Diseñé y
-      programé interfaces dinámicas en Figma para distintos proyectos de
-      clientes, tanto en plataformas web como de escritorio. Desarrollé
-      múltiples aplicaciones de escritorio enfocadas en la adquisición,
-      monitoreo y reporte de datos industriales, adaptadas a diversas
-      industrias. Además, creé un CRM interno completo para la empresa
-      utilizando tecnologías web como JavaScript con Node.js y PostgreSQL, lo
-      que permitió ahorrar horas de trabajo operativo y brindó a la gerencia una
-      visualización en tiempo real del rendimiento de ventas.
-    </p>
-  </div>
-</section-ext>
+---
+const { experiences = [] } = Astro.props;
+---
+
+{
+  experiences.map((experience, index) => (
+    <section-ext>
+      <li class="flex cursor-pointer items-center gap-3 bg-slate-700 px-6 py-3">
+        <svg
+          class={`shrink-0 transition-transform duration-200 ${
+            index === 0 ? "rotate-90" : ""
+          }`}
+          width="5"
+          height="8"
+          viewBox="0 0 5 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.66699 4L0.666992 8L0.666992 0L4.66699 4Z"
+            fill="#F8FAFC"
+          ></path>
+        </svg>
+        <span class="min-w-0 flex-1 truncate text-slate-50">
+          {experience.company}
+        </span>
+        <span class="shrink-0 text-xs text-slate-50">{experience.period}</span>
+      </li>
+      <div
+        class={`info overflow-hidden transition-all duration-300 ${
+          index === 0 ? "max-h-[800px]" : "max-h-0"
+        }`}
+      >
+        <p class="px-6 pt-6 text-sm text-slate-50">{experience.role}</p>
+        <p class="overflow-hidden px-6 py-3">{experience.description}</p>
+        <div class="flex flex-wrap gap-2 px-6 pb-6">
+          {experience.stack.map((technology) => (
+            <span class="bg-theme-backdrop border-theme-stroke rounded border px-2 py-1 text-xs text-slate-50">
+              {technology}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section-ext>
+  ))
+}
 
 <script>
-  class SectionExt extends HTMLElement {
-    connectedCallback() {
-      const liArea = this.querySelector("li");
-      const liIcon = this.querySelector("svg");
-      const info = this.querySelector(".info");
+  if (!customElements.get("section-ext")) {
+    class SectionExt extends HTMLElement {
+      connectedCallback() {
+        const liArea = this.querySelector("li");
+        const liIcon = this.querySelector("svg");
+        const info = this.querySelector(".info");
 
-      liArea?.addEventListener("click", () => {
-        liIcon?.classList.toggle("rotate-90");
-        info?.classList.toggle("max-h-0");
-        info?.classList.toggle("max-h-80");
-      });
+        liArea?.addEventListener("click", () => {
+          liIcon?.classList.toggle("rotate-90");
+          info?.classList.toggle("max-h-0");
+          info?.classList.toggle("max-h-[800px]");
+        });
+      }
     }
-  }
 
-  customElements.define("section-ext", SectionExt);
+    customElements.define("section-ext", SectionExt);
+  }
 </script>

@@ -6,6 +6,111 @@ import Filter from "../components/projects/Filter.astro";
 import ProjectCard from "../components/projects/ProjectCard.astro";
 import ProjectsContainer from "../components/projects/ProjectsContainer.astro";
 import Layout from "../layouts/Layout.astro";
+
+const devicon = (name: string, variant = "original") =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`;
+
+const simpleIcon = (name: string, color = "F8FAFC") =>
+  `https://cdn.simpleicons.org/${name}/${color}`;
+
+const projects = [
+  {
+    title: "mmj-web",
+    description: "Web oficial de MMJ Smart Electronics.",
+    stack: ["Astro", "TypeScript", "JavaScript"],
+    categories: ["web"],
+    codeUrl: "https://github.com/DenilDenilson/mmj-web",
+    previewUrl: "https://www.smartelectronics.com.pe/",
+    image: "https://opengraph.githubassets.com/1/DenilDenilson/mmj-web",
+  },
+  {
+    title: "rat-cli",
+    description:
+      "Herramienta CLI escrita en C que genera una vista lineal de un proyecto para copiar y compartir fácilmente con LLMs como ChatGPT.",
+    stack: ["C", "Makefile", "CLI", "MIT"],
+    categories: ["software"],
+    codeUrl: "https://github.com/DenilDenilson/rat-cli",
+    image: "https://opengraph.githubassets.com/1/DenilDenilson/rat-cli",
+  },
+  {
+    title: "save-your-tabs",
+    description:
+      "Extensión de Chrome para guardar pestañas, generar un link y reabrirlas en otro navegador con un click.",
+    stack: ["HTML", "JavaScript", "CSS", "Chrome Extension"],
+    categories: ["web", "software"],
+    codeUrl: "https://github.com/DenilDenilson/save-your-tabs",
+    previewUrl: "https://syt.denil.org/",
+    image:
+      "https://opengraph.githubassets.com/1/DenilDenilson/save-your-tabs",
+  },
+  {
+    title: "demi-software",
+    description:
+      "Backend de Demi, un asistente físico e inteligente diseñado para capturar, procesar y actuar sobre información en tiempo real a partir de audio.",
+    stack: ["Python", "Backend", "Audio", "IA"],
+    categories: ["software", "embedded"],
+    codeUrl: "https://github.com/DenilDenilson/demi-software",
+    image:
+      "https://opengraph.githubassets.com/1/DenilDenilson/demi-software",
+  },
+  {
+    title: "lima-revelada",
+    description:
+      "Plataforma web interactiva que convierte un paseo por Lima en una experiencia de misterio, curiosidades y relatos ocultos sobre un mapa minimalista.",
+    stack: ["Astro", "TypeScript", "CSS", "JavaScript"],
+    categories: ["web"],
+    codeUrl: "https://github.com/DenilDenilson/lima-revelada",
+    previewUrl: "https://lima-revelada.vercel.app",
+    image:
+      "https://opengraph.githubassets.com/1/DenilDenilson/lima-revelada",
+  },
+];
+
+const skillGroups = [
+  {
+    title: "web full stack",
+    skills: [
+      { name: "HTML", icon: devicon("html5") },
+      { name: "CSS", icon: devicon("css3") },
+      { name: "TailwindCSS", icon: devicon("tailwindcss") },
+      { name: "JavaScript", icon: devicon("javascript") },
+      { name: "TypeScript", icon: devicon("typescript") },
+      { name: "React", icon: devicon("react") },
+      { name: "Astro", icon: simpleIcon("astro", "FF5D01") },
+      { name: "Next JS", icon: simpleIcon("nextdotjs") },
+      { name: "Python", icon: devicon("python") },
+      { name: "Flask", icon: simpleIcon("flask") },
+      { name: "FastAPI", icon: devicon("fastapi") },
+      { name: "Java", icon: devicon("java") },
+      { name: "Spring Boot", icon: devicon("spring") },
+      { name: "Git & GitHub", icon: simpleIcon("github") },
+    ],
+  },
+  {
+    title: "applications",
+    skills: [
+      { name: "Java - Spring", icon: devicon("spring") },
+      { name: "LabVIEW", abbr: "LV" },
+      { name: "Linux", icon: devicon("linux") },
+    ],
+  },
+  {
+    title: "data",
+    skills: [
+      { name: "SQL", abbr: "SQL" },
+      { name: "PostgreSQL", icon: devicon("postgresql") },
+      { name: "SQLite", icon: devicon("sqlite") },
+      { name: "Python - pandas", icon: devicon("pandas") },
+    ],
+  },
+  {
+    title: "extra skills",
+    skills: [
+      { name: "Inglés", abbr: "EN" },
+      { name: "LaTeX", icon: simpleIcon("latex", "008080") },
+    ],
+  },
+];
 ---
 
 <Layout>
@@ -14,31 +119,88 @@ import Layout from "../layouts/Layout.astro";
       <p class="text-heading-foreground p-6 text-sm">_proyectos</p>
       <Filter />
     </ul>
-    <ProjectsContainer />
-    <section class="outline-theme-stroke hidden w-72 outline xl:block">
+    <ProjectsContainer projects={projects} />
+    <section
+      class="outline-theme-stroke hidden max-h-[calc(100vh-7rem)] w-72 overflow-y-auto outline xl:block"
+    >
       <ul
         class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
       >
-        <span> Habilidades </span>
+        <span> Filtros </span>
       </ul>
       <div class="info max-h-80 overflow-hidden transition-all duration-300">
         <ul class="flex flex-col gap-4 p-6">
           <li class="flex items-center gap-3">
-            <input type="checkbox" id="webFilter" class="" />
+            <input
+              type="checkbox"
+              id="desktopWebFilter"
+              value="web"
+              data-project-filter
+              class=""
+            />
             <WebIcon />
-            <label for="webFilter" class="">Desarr. Web</label>
+            <label for="desktopWebFilter" class="">Desarr. Web</label>
           </li>
           <li class="flex items-center gap-3">
-            <input type="checkbox" id="embeddedFilter" class="" />
+            <input
+              type="checkbox"
+              id="desktopEmbeddedFilter"
+              value="embedded"
+              data-project-filter
+              class=""
+            />
             <ChipIcon />
-            <label for="embeddedFilter" class="">Sis. Embebidos</label>
+            <label for="desktopEmbeddedFilter" class="">Sis. Embebidos</label>
           </li>
           <li class="flex items-center gap-3">
-            <input type="checkbox" id="softwareFilter" class="" />
+            <input
+              type="checkbox"
+              id="desktopSoftwareFilter"
+              value="software"
+              data-project-filter
+              class=""
+            />
             <LaptopIcon />
-            <label for="softwareFilter" class="">Desarr. Software</label>
+            <label for="desktopSoftwareFilter" class="">Desarr. Software</label>
           </li>
         </ul>
+      </div>
+      <ul
+        class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
+      >
+        <span> Skills </span>
+      </ul>
+      <div>
+        {
+          skillGroups.map((group) => (
+            <section class="border-theme-stroke border-b px-6 py-4">
+              <h3 class="mb-3 text-xs uppercase text-slate-500">
+                {group.title}
+              </h3>
+              <ul class="flex flex-col gap-3">
+                {group.skills.map((skill) => (
+                  <li class="flex items-center gap-3">
+                    {"icon" in skill ? (
+                      <img
+                        src={skill.icon}
+                        alt=""
+                        loading="lazy"
+                        class="h-7 w-7 shrink-0 object-contain"
+                      />
+                    ) : (
+                      <span class="grid h-7 w-7 shrink-0 place-content-center rounded bg-slate-700 text-[10px] font-semibold text-slate-50">
+                        {skill.abbr}
+                      </span>
+                    )}
+                    <span class="min-w-0 text-sm text-slate-50">
+                      {skill.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))
+        }
       </div>
       <ul
         class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
@@ -84,16 +246,71 @@ import Layout from "../layouts/Layout.astro";
         <p
           class="outline-theme-stroke flex h-12 cursor-pointer items-center justify-between gap-8 px-3 outline"
         >
-          <span class="inline-block w-48 truncate text-sm"> todos </span>
+          <span class="inline-block w-48 truncate text-sm">
+            todos (<span data-project-count>{projects.length}</span>)
+          </span>
         </p>
       </ul>
-      <div class="outline-theme-stroke flex-1 p-16 leading-loose outline">
-        <section class="flex flex-wrap justify-start gap-16 p-6 xl:p-0">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+      <div class="outline-theme-stroke flex-1 overflow-y-auto p-8 outline">
+        <section class="flex max-w-5xl flex-col gap-6">
+          {projects.map((project) => <ProjectCard project={project} />)}
         </section>
+        <p
+          data-project-empty
+          class="text-heading-foreground hidden max-w-5xl py-16 text-center"
+        >
+          No hay proyectos para los filtros seleccionados.
+        </p>
       </div>
     </section>
   </main>
 </Layout>
+
+<script>
+  const projectFilters = document.querySelectorAll("[data-project-filter]");
+  const projectCards = document.querySelectorAll("[data-project-card]");
+  const projectCounters = document.querySelectorAll("[data-project-count]");
+  const emptyStates = document.querySelectorAll("[data-project-empty]");
+
+  function applyProjectFilters() {
+    const activeFilters = Array.from(projectFilters)
+      .filter((filter) => filter.checked)
+      .map((filter) => filter.value);
+
+    const visibleProjects = new Set();
+
+    projectCards.forEach((card) => {
+      const categories = (card.dataset.categories || "").split(" ");
+      const isVisible =
+        activeFilters.length === 0 ||
+        activeFilters.some((filter) => categories.includes(filter));
+
+      card.style.display = isVisible ? "" : "none";
+      if (isVisible && card.dataset.projectId) {
+        visibleProjects.add(card.dataset.projectId);
+      }
+    });
+
+    projectCounters.forEach((counter) => {
+      counter.textContent = String(visibleProjects.size);
+    });
+
+    emptyStates.forEach((emptyState) => {
+      emptyState.classList.toggle("hidden", visibleProjects.size !== 0);
+    });
+  }
+
+  projectFilters.forEach((filter) => {
+    filter.addEventListener("change", () => {
+      projectFilters.forEach((otherFilter) => {
+        if (otherFilter.value === filter.value) {
+          otherFilter.checked = filter.checked;
+        }
+      });
+
+      applyProjectFilters();
+    });
+  });
+
+  applyProjectFilters();
+</script>

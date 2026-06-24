@@ -7,8 +7,8 @@ const simpleIcon = (name: string, color = "90A1B9") =>
 
 const contactItems = [
   {
-    label: "denildenilson@gmail.com",
-    href: "mailto:denildenilson@gmail.com",
+    label: "jordanpreseleccion@gmail.com",
+    href: "mailto:jordanpreseleccion@gmail.com",
     icon: simpleIcon("gmail", "EA4335"),
   },
   {
@@ -40,12 +40,43 @@ const socialLinks = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/denilson-trujillo-4127692ba/",
-    icon: simpleIcon("linkedin", "0A66C2"),
+    icon: "/icons/linkedin.svg",
   },
   {
     label: "GitHub",
     href: "https://github.com/DenilDenilson",
     icon: simpleIcon("github", "F8FAFC"),
+  },
+];
+
+const serviceAreas = [
+  "Backend y APIs",
+  "Automatización de procesos",
+  "Herramientas internas",
+  "Software conectado a sensores/equipos",
+  "IA aplicada a flujos reales",
+];
+
+const primaryActions = [
+  {
+    label: "email",
+    href: "mailto:jordanpreseleccion@gmail.com",
+    icon: simpleIcon("gmail", "EA4335"),
+  },
+  {
+    label: "linkedin",
+    href: "https://www.linkedin.com/in/denilson-trujillo-4127692ba/",
+    icon: "/icons/linkedin.svg",
+  },
+  {
+    label: "github",
+    href: "https://github.com/DenilDenilson",
+    icon: simpleIcon("github", "F8FAFC"),
+  },
+  {
+    label: "whatsapp",
+    href: "https://wa.me/51933156539",
+    icon: simpleIcon("whatsapp", "25D366"),
   },
 ];
 ---
@@ -60,34 +91,38 @@ const socialLinks = [
     <Sections />
 
     <section class="px-6 pb-10 xl:hidden">
-      <form class="mx-auto max-w-md space-y-5">
-        <label class="block">
-          <span class="mb-2 block text-sm">_name:</span>
-          <input
-            type="text"
-            class="bg-theme-backdrop border-theme-stroke focus:border-primary-background h-12 w-full rounded-lg border px-4 text-slate-50 outline-none transition"
-          />
-        </label>
-        <label class="block">
-          <span class="mb-2 block text-sm">_email:</span>
-          <input
-            type="email"
-            class="bg-theme-backdrop border-theme-stroke focus:border-primary-background h-12 w-full rounded-lg border px-4 text-slate-50 outline-none transition"
-          />
-        </label>
-        <label class="block">
-          <span class="mb-2 block text-sm">_message:</span>
-          <textarea
-            placeholder="Escribe tu mensaje aquí..."
-            class="bg-theme-backdrop border-theme-stroke focus:border-primary-background h-44 w-full resize-none rounded-lg border px-4 py-3 text-slate-50 outline-none transition placeholder:text-slate-700"></textarea>
-        </label>
-        <button
-          type="submit"
-          class="bg-primary-background text-primary-inverted h-11 rounded-lg px-5 text-sm font-semibold transition hover:brightness-110"
-        >
-          enviar-mensaje
-        </button>
-      </form>
+      <div class="mx-auto max-w-md space-y-6">
+        <div>
+          <p class="mb-2 text-sm text-orange-300">disponible_para</p>
+          <h1 class="text-heading-foreground text-2xl font-semibold">
+            Hablemos si necesitas construir software útil.
+          </h1>
+        </div>
+        <ul class="space-y-3">
+          {
+            serviceAreas.map((area) => (
+              <li class="border-theme-stroke bg-theme-backdrop/50 rounded-lg border px-4 py-3 text-sm text-slate-50">
+                {area}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="flex flex-wrap gap-3">
+          {
+            primaryActions.map((action) => (
+              <a
+                href={action.href}
+                target={action.href.startsWith("http") ? "_blank" : undefined}
+                rel={action.href.startsWith("http") ? "noreferrer" : undefined}
+                class="border-theme-stroke bg-theme-backdrop flex items-center gap-2 rounded-lg border px-4 py-3 text-sm font-semibold text-slate-50 transition hover:border-primary-background hover:text-primary-background"
+              >
+                <img src={action.icon} alt="" loading="lazy" class="h-4 w-4" />
+                {action.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
     </section>
 
     <section
@@ -168,34 +203,50 @@ const socialLinks = [
       <div
         class="outline-theme-stroke grid flex-1 place-content-center overflow-y-auto px-8 py-8 outline"
       >
-        <form class="w-[min(100%,410px)] space-y-7">
-          <label class="block">
-            <span class="mb-2 block text-sm">_name:</span>
-            <input
-              type="text"
-              class="bg-theme-backdrop border-theme-stroke focus:border-primary-background h-12 w-full rounded-lg border px-4 text-slate-50 outline-none transition"
-            />
-          </label>
-          <label class="block">
-            <span class="mb-2 block text-sm">_email:</span>
-            <input
-              type="email"
-              class="bg-theme-backdrop border-theme-stroke focus:border-primary-background h-12 w-full rounded-lg border px-4 text-slate-50 outline-none transition"
-            />
-          </label>
-          <label class="block">
-            <span class="mb-2 block text-sm">_message:</span>
-            <textarea
-              placeholder="Escribe tu mensaje aquí..."
-              class="bg-theme-backdrop border-theme-stroke focus:border-primary-background h-48 w-full resize-none rounded-lg border px-4 py-3 text-slate-50 outline-none transition placeholder:text-slate-700"></textarea>
-          </label>
-          <button
-            type="submit"
-            class="bg-primary-background text-primary-inverted h-10 rounded-lg px-5 text-sm font-semibold transition hover:brightness-110"
-          >
-            enviar-mensaje
-          </button>
-        </form>
+        <div class="w-[min(100%,520px)] space-y-8">
+          <div>
+            <p class="mb-3 text-sm text-orange-300">disponible_para</p>
+            <h1 class="text-heading-foreground mb-5 text-3xl font-semibold leading-tight">
+              Hablemos si necesitas construir software útil.
+            </h1>
+            <p class="leading-relaxed">
+              Busco oportunidades full-time donde pueda aportar en backend,
+              automatización, herramientas internas, sistemas conectados a
+              hardware e IA aplicada a procesos reales.
+            </p>
+          </div>
+
+          <ul class="grid gap-3">
+            {
+              serviceAreas.map((area) => (
+                <li class="border-theme-stroke bg-theme-backdrop/50 rounded-lg border px-4 py-3 text-sm text-slate-50 transition hover:border-primary-background">
+                  {area}
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="flex flex-wrap gap-3">
+            {
+              primaryActions.map((action) => (
+                <a
+                  href={action.href}
+                  target={action.href.startsWith("http") ? "_blank" : undefined}
+                  rel={action.href.startsWith("http") ? "noreferrer" : undefined}
+                  class="border-theme-stroke bg-theme-backdrop flex items-center gap-2 rounded-lg border px-4 py-3 text-sm font-semibold text-slate-50 transition hover:border-primary-background hover:text-primary-background"
+                >
+                  <img
+                    src={action.icon}
+                    alt=""
+                    loading="lazy"
+                    class="h-4 w-4"
+                  />
+                  {action.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </section>
 
@@ -204,18 +255,22 @@ const socialLinks = [
       <div
         class="outline-theme-stroke flex-1 overflow-auto px-8 py-5 leading-loose outline"
       >
-        <pre class="text-sm leading-8"><code><span class="text-slate-500"> 1</span>  <span class="text-purple-400">const</span> <span class="text-indigo-500">button</span> = <span class="text-indigo-500">document</span>.<span class="text-indigo-500">querySelector</span>(<span class="text-orange-300">'#sendBtn'</span>);
+        <pre class="text-sm leading-8"><code><span class="text-slate-500"> 1</span>  <span class="text-purple-400">const</span> <span class="text-indigo-500">contact</span> = &#123;
 <span class="text-slate-500"> 2</span>
-<span class="text-slate-500"> 3</span>  <span class="text-purple-400">const</span> <span class="text-indigo-500">message</span> = &#123;
-<span class="text-slate-500"> 4</span>    <span class="text-indigo-500">name</span>: <span class="text-orange-300">'NAME'</span>,
-<span class="text-slate-500"> 5</span>    <span class="text-indigo-500">email</span>: <span class="text-orange-300">'email'</span>,
-<span class="text-slate-500"> 6</span>    <span class="text-indigo-500">message</span>: <span class="text-orange-300">'message'</span>,
-<span class="text-slate-500"> 7</span>    <span class="text-indigo-500">date</span>: <span class="text-orange-300">'date'</span>,
-<span class="text-slate-500"> 8</span>  &#125;
-<span class="text-slate-500"> 9</span>
-<span class="text-slate-500">10</span>  <span class="text-indigo-500">button</span>.<span class="text-indigo-500">addEventListener</span>(<span class="text-orange-300">'click'</span>, () =&gt; &#123;
-<span class="text-slate-500">11</span>    <span class="text-indigo-500">form</span>.<span class="text-indigo-500">send</span>(<span class="text-indigo-500">message</span>);
-<span class="text-slate-500">12</span>  &#125;)</code></pre>
+<span class="text-slate-500"> 3</span>    <span class="text-indigo-500">email</span>: <span class="text-orange-300">'jordanpreseleccion@gmail.com'</span>,
+<span class="text-slate-500"> 4</span>    <span class="text-indigo-500">altEmail</span>: <span class="text-orange-300">'jdtrujillos@uni.pe'</span>,
+<span class="text-slate-500"> 5</span>    <span class="text-indigo-500">location</span>: <span class="text-orange-300">'Lima, Peru'</span>,
+<span class="text-slate-500"> 6</span>    <span class="text-indigo-500">availability</span>: <span class="text-orange-300">'full-time'</span>,
+<span class="text-slate-500"> 7</span>    <span class="text-indigo-500">roles</span>: [
+<span class="text-slate-500"> 8</span>      <span class="text-orange-300">'backend'</span>,
+<span class="text-slate-500"> 9</span>      <span class="text-orange-300">'systems'</span>,
+<span class="text-slate-500">10</span>      <span class="text-orange-300">'automation'</span>,
+<span class="text-slate-500">11</span>    ],
+<span class="text-slate-500">12</span>    <span class="text-indigo-500">links</span>: &#123;
+<span class="text-slate-500">13</span>      <span class="text-indigo-500">github</span>: <span class="text-orange-300">'github.com/DenilDenilson'</span>,
+<span class="text-slate-500">14</span>      <span class="text-indigo-500">linkedin</span>: <span class="text-orange-300">'linkedin.com/in/denilson-trujillo-4127692ba'</span>,
+<span class="text-slate-500">15</span>    &#125;,
+<span class="text-slate-500">16</span>  &#125;;</code></pre>
       </div>
     </section>
   </main>

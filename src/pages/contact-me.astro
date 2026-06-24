@@ -51,7 +51,9 @@ const socialLinks = [
 ---
 
 <Layout>
-  <main class="flex flex-1 flex-col pt-14 xl:flex-row">
+  <main
+    class="mt-14 mb-14 flex h-[calc(100vh-7rem)] flex-col overflow-y-auto xl:flex-row xl:overflow-hidden"
+  >
     <ul class="flex flex-col gap-1 xl:hidden">
       <p class="text-heading-foreground p-6 text-sm">_contact-me</p>
     </ul>
@@ -88,7 +90,9 @@ const socialLinks = [
       </form>
     </section>
 
-    <section class="outline-theme-stroke hidden w-72 outline xl:block">
+    <section
+      class="outline-theme-stroke hidden h-full w-72 overflow-y-auto outline xl:block"
+    >
       <ul
         class="outline-theme-stroke flex items-center gap-3 px-6 py-3 text-slate-50 outline"
       >
@@ -162,7 +166,7 @@ const socialLinks = [
     <section class="hidden flex-1 flex-col xl:flex">
       <ul class="flex h-12 gap-0"></ul>
       <div
-        class="outline-theme-stroke grid flex-1 place-content-center px-8 py-8 outline"
+        class="outline-theme-stroke grid flex-1 place-content-center overflow-y-auto px-8 py-8 outline"
       >
         <form class="w-[min(100%,410px)] space-y-7">
           <label class="block">
@@ -198,7 +202,7 @@ const socialLinks = [
     <section class="hidden flex-1 flex-col xl:flex">
       <ul class="flex h-12 gap-0"></ul>
       <div
-        class="outline-theme-stroke flex-1 overflow-x-auto px-8 py-5 leading-loose outline"
+        class="outline-theme-stroke flex-1 overflow-auto px-8 py-5 leading-loose outline"
       >
         <pre class="text-sm leading-8"><code><span class="text-slate-500"> 1</span>  <span class="text-purple-400">const</span> <span class="text-indigo-500">button</span> = <span class="text-indigo-500">document</span>.<span class="text-indigo-500">querySelector</span>(<span class="text-orange-300">'#sendBtn'</span>);
 <span class="text-slate-500"> 2</span>

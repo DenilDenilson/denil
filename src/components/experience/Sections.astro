@@ -33,6 +33,13 @@ const { experiences = [] } = Astro.props;
       >
         <p class="px-6 pt-6 text-sm text-slate-50">{experience.role}</p>
         <p class="overflow-hidden px-6 py-3">{experience.description}</p>
+        <div class="flex flex-wrap gap-2 px-6 pb-4">
+          {experience.areas.map((area) => (
+            <span class="border-theme-stroke rounded border px-2 py-1 text-xs text-orange-300">
+              {area}
+            </span>
+          ))}
+        </div>
         <div class="flex flex-wrap gap-2 px-6 pb-6">
           {experience.stack.map((technology) => (
             <span class="bg-theme-backdrop border-theme-stroke rounded border px-2 py-1 text-xs text-slate-50">

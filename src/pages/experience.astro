@@ -9,6 +9,7 @@ const experiences = [
     period: "Ago 2025 – Abr 2026",
     description:
       "Automatización de reportes, integración de IA mediante Claude/MCP, lectura de sensores vía Modbus, comunicación MQTT y desarrollo de plataformas web para visualización de datos. También participé en ingeniería inversa de equipos de laboratorio usando Python, LabVIEW, osciloscopio y analizador lógico.",
+    areas: ["Automatización", "Backend", "IoT", "IA aplicada"],
     stack: [
       "Python",
       "LabVIEW",
@@ -26,6 +27,7 @@ const experiences = [
     period: "Ago 2023 – Jul 2025",
     description:
       "Desarrollo de plataformas web para monitoreo y control de equipos físicos mediante MQTT, firmware en Arduino y frontends desplegados en Vercel. Lideré la creación de un CRM interno con Next.js, Express y PostgreSQL para gestión comercial y visualización de ventas en tiempo real.",
+    areas: ["Full stack", "Backend", "Herramientas internas", "IoT"],
     stack: [
       "Next.js",
       "Astro",
@@ -37,15 +39,38 @@ const experiences = [
     ],
   },
 ];
+
+const solvedProblems = [
+  {
+    title: "Automatización e Integración con IA",
+    detail: "Python, IA aplicada y flujos internos para reducir trabajo manual.",
+  },
+  {
+    title: "Crear herramientas internas",
+    detail: "APIs, CRMs, CLIs y paneles para equipos comerciales u operativos.",
+  },
+  {
+    title: "Monitoreo de sensores",
+    detail: "Ingesta, comunicación y visualización de datos de dispositivos.",
+  },
+  {
+    title: "Desplegar sistemas",
+    detail: "Servidores Linux, Vercel y aplicaciones listas para uso interno.",
+  },
+];
 ---
 
 <Layout>
-  <main class="flex-1 pt-14 xl:flex">
+  <main
+    class="mt-14 mb-14 h-[calc(100vh-7rem)] overflow-y-auto xl:flex xl:overflow-hidden"
+  >
     <ul class="flex flex-col gap-1 xl:hidden">
       <p class="text-heading-foreground p-6 text-sm">_experience</p>
       <Sections experiences={experiences} />
     </ul>
-    <section class="outline-theme-stroke hidden w-72 outline xl:block">
+    <section
+      class="outline-theme-stroke hidden h-full w-72 overflow-y-auto outline xl:block"
+    >
       <ul
         class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"
       >
@@ -188,6 +213,13 @@ const experiences = [
               <p class="mb-1 text-teal-400">{experience.role}</p>
               <p class="mb-6 text-sm text-slate-500">{experience.period}</p>
               <p class="mb-6">{experience.description}</p>
+              <div class="mb-4 flex flex-wrap gap-2">
+                {experience.areas.map((area) => (
+                  <span class="border-theme-stroke rounded border px-3 py-1 text-sm text-orange-300">
+                    {area}
+                  </span>
+                ))}
+              </div>
               <div class="flex flex-wrap gap-2">
                 {experience.stack.map((technology) => (
                   <span class="bg-theme-backdrop border-theme-stroke rounded border px-3 py-1 text-sm text-slate-50">
@@ -205,28 +237,31 @@ const experiences = [
         <p
           class="outline-theme-stroke flex h-12 cursor-pointer items-center justify-between gap-8 px-3 pr-9 outline"
         >
-          <span class="inline-block truncate text-sm"> Stack </span>
+          <span class="inline-block truncate text-sm">
+            Problemas que resuelvo
+          </span>
         </p>
       </ul>
       <div
-        class="outline-theme-stroke flex-1 space-y-8 overflow-y-auto px-6 py-6 outline"
+        class="outline-theme-stroke flex-1 overflow-y-auto px-5 py-5 outline"
       >
-        {
-          experiences.map((experience) => (
-            <article>
-              <h3 class="text-heading-foreground mb-3 text-sm">
-                {experience.company}
-              </h3>
-              <ul class="flex flex-wrap gap-2">
-                {experience.stack.map((technology) => (
-                  <li class="bg-theme-backdrop border-theme-stroke rounded border px-2 py-1 text-xs text-slate-50">
-                    {technology}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))
-        }
+        <ol class="space-y-3">
+          {
+            solvedProblems.map((problem, index) => (
+              <li class="group border-theme-stroke bg-theme-backdrop/50 rounded-lg border p-4 transition hover:border-primary-background hover:bg-slate-950">
+                <div class="mb-3 flex items-center gap-3">
+                  <span class="border-theme-stroke bg-theme-background text-orange-300 grid h-7 w-7 shrink-0 place-content-center rounded border text-xs">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 class="text-heading-foreground text-sm font-semibold leading-snug">
+                    {problem.title}
+                  </h3>
+                </div>
+                <p class="text-xs leading-relaxed">{problem.detail}</p>
+              </li>
+            ))
+          }
+        </ol>
       </div>
     </section>
   </main>

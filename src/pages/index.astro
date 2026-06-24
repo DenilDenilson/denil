@@ -2,13 +2,35 @@
 import BlobGreen from "../components/BlobGreen.astro";
 import BlobViolet from "../components/BlobViolet.astro";
 import Layout from "../layouts/Layout.astro";
+
+const devicon = (name: string, variant = "original") =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`;
+
+const simpleIcon = (name: string, color = "F8FAFC") =>
+  `https://cdn.simpleicons.org/${name}/${color}`;
+
+const skills = [
+  { name: "Python", icon: devicon("python") },
+  { name: "TypeScript", icon: devicon("typescript") },
+  { name: "Node.js", icon: devicon("nodejs") },
+  { name: "FastAPI", icon: devicon("fastapi") },
+  { name: "Linux", icon: devicon("linux") },
+  { name: "PostgreSQL", icon: devicon("postgresql") },
+  { name: "SQLite", icon: devicon("sqlite") },
+  { name: "SQL", abbr: "SQL" },
+  { name: "C", icon: devicon("c") },
+  { name: "MQTT", abbr: "MQTT" },
+  { name: "Modbus", abbr: "MB" },
+  { name: "ESP32", abbr: "ESP" },
+  { name: "Git", icon: simpleIcon("git", "F05032") },
+];
 ---
 
 <Layout>
   <main
-    class="flex flex-1 flex-col justify-center gap-16 py-4 pr-4 pl-6 xl:pl-[320px]"
+    class="mt-14 mb-14 flex h-[calc(100vh-7rem)] flex-col justify-start gap-12 overflow-y-auto py-10 pr-4 pl-6 xl:justify-center xl:gap-14 xl:py-8 xl:pl-[320px]"
   >
-    <hgroup class="">
+    <hgroup class="max-w-4xl">
       <h5 class="relative mb-1 text-lg xl:mb-3 xl:text-xl">
         Hola, yo soy
         <div class="absolute -top-32 left-96">
@@ -21,26 +43,89 @@ import Layout from "../layouts/Layout.astro";
         Denilson Trujillo
       </h1>
       <h3 class="text-xl text-indigo-500 xl:text-3xl">
-        &#62 Full-Stack y IoT developer
+        &#62 Backend, automatización y sistemas
       </h3>
     </hgroup>
-    <section>
+
+    <section class="max-w-4xl space-y-5 text-base leading-relaxed xl:text-xl">
+      <p>
+        Construyo APIs, herramientas internas, automatizaciones con IA y
+        software conectado a datos, IA y hardware.
+      </p>
+
+    </section>
+
+    <section class="max-w-4xl">
       <h5 class="relative mb-4 xl:text-xl">
-        &#47&#47 find my profile on Github
+        &#47&#47 skills
         <div class="absolute -top-48 left-[600px]">
           <BlobViolet />
         </div>
       </h5>
-      <p class="xl:text-2xl">
-        <span class="text-indigo-500 xl:text-xl">const</span>
-        <span class="text-teal-400 xl:text-xl">githublink</span>
-        =
-        <a
-          href="https://github.com/DenilDenilson"
-          class="text-link-foreground cursor-pointer xl:text-xl"
-          >https://github.com/DenilDenilson</a
-        >
-      </p>
+
+      <div
+        class="skill-carousel border-theme-stroke bg-theme-backdrop/40 relative overflow-hidden rounded-lg border py-4"
+      >
+        <ul class="skill-track flex w-max items-center gap-3 px-3">
+          {
+            [...skills, ...skills].map((skill) => (
+              <li class="border-theme-stroke bg-theme-background flex h-12 shrink-0 items-center gap-3 rounded-md border px-4 text-sm text-slate-50">
+                {"icon" in skill ? (
+                  <img
+                    src={skill.icon}
+                    alt=""
+                    loading="lazy"
+                    class="h-7 w-7 shrink-0 object-contain"
+                  />
+                ) : (
+                  <span class="grid h-7 w-7 shrink-0 place-content-center rounded bg-slate-700 text-[10px] font-semibold text-slate-50">
+                    {skill.abbr}
+                  </span>
+                )}
+                <span>{skill.name}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </section>
   </main>
 </Layout>
+
+<style>
+  .skill-carousel {
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+  }
+
+  .skill-track {
+    animation: scroll-skills 24s linear infinite;
+  }
+
+  .skill-carousel:hover .skill-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-skills {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: auto;
+    }
+  }
+</style>

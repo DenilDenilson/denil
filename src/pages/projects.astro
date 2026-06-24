@@ -15,19 +15,10 @@ const simpleIcon = (name: string, color = "F8FAFC") =>
 
 const projects = [
   {
-    title: "mmj-web",
-    description: "Web oficial de MMJ Smart Electronics.",
-    stack: ["Astro", "TypeScript", "JavaScript"],
-    categories: ["web"],
-    codeUrl: "https://github.com/DenilDenilson/mmj-web",
-    previewUrl: "https://www.smartelectronics.com.pe/",
-    image: "https://opengraph.githubassets.com/1/DenilDenilson/mmj-web",
-  },
-  {
     title: "rat-cli",
     description:
-      "Herramienta CLI escrita en C que genera una vista lineal de un proyecto para copiar y compartir fácilmente con LLMs como ChatGPT.",
-    stack: ["C", "Makefile", "CLI", "MIT"],
+      "CLI en C para convertir una carpeta de proyecto en contexto limpio para LLMs. Recorre directorios, imprime archivos útiles e ignora dependencias, builds, binarios y archivos pesados.",
+    stack: ["C", "CLI", "Linux", "LLM tooling", "MIT"],
     categories: ["software"],
     codeUrl: "https://github.com/DenilDenilson/rat-cli",
     image: "https://opengraph.githubassets.com/1/DenilDenilson/rat-cli",
@@ -35,8 +26,8 @@ const projects = [
   {
     title: "save-your-tabs",
     description:
-      "Extensión de Chrome para guardar pestañas, generar un link y reabrirlas en otro navegador con un click.",
-    stack: ["HTML", "JavaScript", "CSS", "Chrome Extension"],
+      "Sistema full-stack para guardar sesiones de pestañas, generar un enlace compartible y restaurarlas desde una extensión Chrome Manifest V3 conectada a una API segura.",
+    stack: ["Chrome Extension", "Manifest V3", "Node.js", "Express", "JavaScript"],
     categories: ["web", "software"],
     codeUrl: "https://github.com/DenilDenilson/save-your-tabs",
     previewUrl: "https://syt.denil.org/",
@@ -44,14 +35,42 @@ const projects = [
       "https://opengraph.githubassets.com/1/DenilDenilson/save-your-tabs",
   },
   {
+    title: "AdmiLab",
+    description:
+      "Motor para generar simulacros personalizados de admisión universitaria en PDF a partir de un banco de preguntas clasificado por universidad, curso, tema, subtema y dificultad.",
+    stack: ["Python", "Streamlit", "SQLite", "PDF", "Telegram Bot"],
+    categories: ["software"],
+    codeUrl: "https://github.com/DenilDenilson/AdmiLab",
+    image: "https://opengraph.githubassets.com/1/DenilDenilson/AdmiLab",
+  },
+  {
     title: "demi-software",
     description:
-      "Backend de Demi, un asistente físico e inteligente diseñado para capturar, procesar y actuar sobre información en tiempo real a partir de audio.",
-    stack: ["Python", "Backend", "Audio", "IA"],
+      "Backend experimental para un asistente físico e inteligente que captura audio, procesa información en tiempo real y prepara acciones sobre datos propios.",
+    stack: ["Python", "FastAPI", "Backend", "Audio", "IA"],
     categories: ["software", "embedded"],
     codeUrl: "https://github.com/DenilDenilson/demi-software",
     image:
       "https://opengraph.githubassets.com/1/DenilDenilson/demi-software",
+  },
+  {
+    title: "salio",
+    description:
+      "Sitio informativo que congela cuotas públicas prepartido mediante snapshots JSON versionados y luego muestra qué selecciones acertaron según resultados finales.",
+    stack: ["TypeScript", "Astro", "JSON", "Snapshots", "Datos"],
+    categories: ["web", "software"],
+    codeUrl: "https://github.com/DenilDenilson/salio",
+    image: "https://opengraph.githubassets.com/1/DenilDenilson/salio",
+  },
+  {
+    title: "mmj-web",
+    description:
+      "Web comercial para MMJ Smart Electronics, desarrollada para presentar servicios, soluciones de electrónica y presencia digital de una empresa real.",
+    stack: ["Astro", "TypeScript", "JavaScript"],
+    categories: ["web"],
+    codeUrl: "https://github.com/DenilDenilson/mmj-web",
+    previewUrl: "https://www.smartelectronics.com.pe/",
+    image: "https://opengraph.githubassets.com/1/DenilDenilson/mmj-web",
   },
   {
     title: "lima-revelada",
@@ -114,14 +133,16 @@ const skillGroups = [
 ---
 
 <Layout>
-  <main class="flex-1 pt-14 xl:flex">
+  <main
+    class="mt-14 mb-14 h-[calc(100vh-7rem)] overflow-y-auto xl:flex xl:overflow-hidden"
+  >
     <ul class="flex flex-col gap-1 xl:hidden">
       <p class="text-heading-foreground p-6 text-sm">_proyectos</p>
       <Filter />
     </ul>
     <ProjectsContainer projects={projects} />
     <section
-      class="outline-theme-stroke hidden max-h-[calc(100vh-7rem)] w-72 overflow-y-auto outline xl:block"
+      class="outline-theme-stroke hidden h-full w-72 overflow-y-auto outline xl:block"
     >
       <ul
         class="outline-theme-stroke flex cursor-pointer items-center gap-3 px-6 py-3 text-slate-50 outline"

@@ -28,67 +28,83 @@ const skills = [
 
 <Layout>
   <main
-    class="mt-14 mb-14 flex h-[calc(100vh-7rem)] flex-col justify-start gap-12 overflow-y-auto py-10 pr-4 pl-6 xl:justify-center xl:gap-14 xl:py-8 xl:pl-[320px]"
+    class="mt-14 mb-14 grid h-[calc(100vh-7rem)] gap-12 overflow-y-auto py-10 pr-4 pl-6 xl:grid-cols-[minmax(0,760px)_minmax(360px,460px)] xl:items-center xl:gap-20 xl:overflow-hidden xl:py-8 xl:pr-8 xl:pl-[320px]"
   >
-    <hgroup class="max-w-4xl">
-      <h5 class="relative mb-1 text-lg xl:mb-3 xl:text-xl">
-        Hola, yo soy
-        <div class="absolute -top-32 left-96">
-          <BlobGreen />
+    <div class="flex min-w-0 flex-col justify-center gap-12 xl:gap-14">
+      <hgroup class="max-w-4xl">
+        <h5 class="relative mb-1 text-lg xl:mb-3 xl:text-xl">
+          Hola, yo soy
+          <div class="absolute -top-32 left-96">
+            <BlobGreen />
+          </div>
+        </h5>
+        <h1
+          class="text-heading-foreground mb-4 text-5xl leading-16 xl:mb-6 xl:text-7xl"
+        >
+          Denilson Trujillo
+        </h1>
+        <h3 class="text-xl text-indigo-500 xl:text-3xl">
+          &#62 Backend, automatización y sistemas
+        </h3>
+      </hgroup>
+
+      <section class="max-w-4xl space-y-5 text-base leading-relaxed xl:text-xl">
+        <p>
+          Construyo APIs, herramientas internas, automatizaciones con IA y
+          software conectado a datos, IA y hardware.
+        </p>
+
+      </section>
+
+      <section class="max-w-4xl">
+        <h5 class="relative mb-4 xl:text-xl">
+          &#47&#47 skills
+          <div class="absolute -top-48 left-[600px]">
+            <BlobViolet />
+          </div>
+        </h5>
+
+        <div
+          class="skill-carousel border-theme-stroke bg-theme-backdrop/40 relative overflow-hidden rounded-lg border py-4"
+        >
+          <ul class="skill-track flex w-max items-center gap-3 px-3">
+            {
+              [...skills, ...skills].map((skill) => (
+                <li class="border-theme-stroke bg-theme-background flex h-12 shrink-0 items-center gap-3 rounded-md border px-4 text-sm text-slate-50">
+                  {"icon" in skill ? (
+                    <img
+                      src={skill.icon}
+                      alt=""
+                      loading="lazy"
+                      class="h-7 w-7 shrink-0 object-contain"
+                    />
+                  ) : (
+                    <span class="grid h-7 w-7 shrink-0 place-content-center rounded bg-slate-700 text-[10px] font-semibold text-slate-50">
+                      {skill.abbr}
+                    </span>
+                  )}
+                  <span>{skill.name}</span>
+                </li>
+              ))
+            }
+          </ul>
         </div>
-      </h5>
-      <h1
-        class="text-heading-foreground mb-4 text-5xl leading-16 xl:mb-6 xl:text-7xl"
-      >
-        Denilson Trujillo
-      </h1>
-      <h3 class="text-xl text-indigo-500 xl:text-3xl">
-        &#62 Backend, automatización y sistemas
-      </h3>
-    </hgroup>
+      </section>
+    </div>
 
-    <section class="max-w-4xl space-y-5 text-base leading-relaxed xl:text-xl">
-      <p>
-        Construyo APIs, herramientas internas, automatizaciones con IA y
-        software conectado a datos, IA y hardware.
-      </p>
-
-    </section>
-
-    <section class="max-w-4xl">
-      <h5 class="relative mb-4 xl:text-xl">
-        &#47&#47 skills
-        <div class="absolute -top-48 left-[600px]">
-          <BlobViolet />
-        </div>
-      </h5>
-
-      <div
-        class="skill-carousel border-theme-stroke bg-theme-backdrop/40 relative overflow-hidden rounded-lg border py-4"
-      >
-        <ul class="skill-track flex w-max items-center gap-3 px-3">
-          {
-            [...skills, ...skills].map((skill) => (
-              <li class="border-theme-stroke bg-theme-background flex h-12 shrink-0 items-center gap-3 rounded-md border px-4 text-sm text-slate-50">
-                {"icon" in skill ? (
-                  <img
-                    src={skill.icon}
-                    alt=""
-                    loading="lazy"
-                    class="h-7 w-7 shrink-0 object-contain"
-                  />
-                ) : (
-                  <span class="grid h-7 w-7 shrink-0 place-content-center rounded bg-slate-700 text-[10px] font-semibold text-slate-50">
-                    {skill.abbr}
-                  </span>
-                )}
-                <span>{skill.name}</span>
-              </li>
-            ))
-          }
-        </ul>
+    <aside class="flex min-w-0 justify-center xl:justify-end">
+      <div class="w-full max-w-[460px]">
+        <h5 class="mb-4 xl:text-xl">&#47&#47 Bullent</h5>
+        <iframe
+          src="http://localhost:5173/?embed=1"
+          title="Bullent"
+          width="460"
+          height="560"
+          loading="lazy"
+          class="border-theme-stroke bg-theme-backdrop h-[min(560px,calc(100vh-11rem))] w-full rounded-lg border"
+        ></iframe>
       </div>
-    </section>
+    </aside>
   </main>
 </Layout>
 

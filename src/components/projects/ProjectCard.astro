@@ -1,4 +1,6 @@
 ---
+import fallbackImage from "../../assets/images/image-broken.webp";
+
 const fallbackProject = {
   title: "mmj-web",
   description: "Web oficial de MMJ Smart Electronics.",
@@ -24,6 +26,7 @@ const { project = fallbackProject } = Astro.props;
     <img
       src={project.image}
       alt={`Vista previa de ${project.title}`}
+      onerror={`this.onerror=null;this.src='${fallbackImage.src}'`}
       class="h-full w-full object-cover"
     />
   </div>

@@ -28,13 +28,13 @@ const skills = [
 
 <Layout>
   <main
-    class="mt-14 mb-14 grid h-[calc(100vh-7rem)] gap-12 overflow-y-auto py-10 pr-4 pl-6 xl:grid-cols-[minmax(0,760px)_minmax(360px,460px)] xl:items-center xl:gap-20 xl:overflow-hidden xl:py-8 xl:pr-8 xl:pl-[320px]"
+    class="mt-14 mb-14 grid h-[calc(100vh-7rem)] gap-12 overflow-y-auto overflow-x-hidden py-10 pr-4 pl-6 xl:grid-cols-[minmax(0,760px)_minmax(360px,460px)] xl:items-center xl:gap-20 xl:overflow-hidden xl:py-8 xl:pr-8 xl:pl-[320px]"
   >
     <div class="flex min-w-0 flex-col justify-center gap-12 xl:gap-14">
       <hgroup class="max-w-4xl">
         <h5 class="relative mb-1 text-lg xl:mb-3 xl:text-xl">
           Hola, yo soy
-          <div class="absolute -top-32 left-96">
+          <div class="absolute -top-32 left-96 hidden xl:block">
             <BlobGreen />
           </div>
         </h5>
@@ -59,7 +59,7 @@ const skills = [
       <section class="max-w-4xl">
         <h5 class="relative mb-4 xl:text-xl">
           &#47&#47 skills
-          <div class="absolute -top-48 left-[600px]">
+          <div class="absolute -top-48 left-[600px] hidden xl:block">
             <BlobViolet />
           </div>
         </h5>
@@ -93,15 +93,36 @@ const skills = [
     </div>
 
     <aside class="flex min-w-0 justify-center xl:justify-end">
-      <div class="w-full max-w-[460px]">
-        <h5 class="mb-4 xl:text-xl">&#47&#47 Bullent</h5>
+      <div class="w-full max-w-full xl:max-w-[460px]">
+        <div class="mb-4">
+          <h5 class="mb-2 xl:text-xl">&#47&#47 Bullent</h5>
+          <p class="text-heading-foreground text-sm">
+            Juego propio programado por mí.
+            <a
+              href="https://github.com/DenilDenilson/bullent"
+              target="_blank"
+              rel="noreferrer"
+              class="text-link-foreground hover:text-primary-background"
+            >
+              Ver repo
+            </a>
+          </p>
+        </div>
         <iframe
-          src="http://localhost:5173/?embed=1"
+          src="https://bullent.denil.org/?mobile=1"
+          title="Bullent"
+          width="390"
+          height="620"
+          loading="lazy"
+          class="border-theme-stroke bg-theme-backdrop h-[min(620px,calc(100vh-11rem))] w-full max-w-full rounded-lg border xl:hidden"
+        ></iframe>
+        <iframe
+          src="https://bullent.denil.org/?embed=1"
           title="Bullent"
           width="460"
           height="560"
           loading="lazy"
-          class="border-theme-stroke bg-theme-backdrop h-[min(560px,calc(100vh-11rem))] w-full rounded-lg border"
+          class="border-theme-stroke bg-theme-backdrop hidden h-[min(560px,calc(100vh-11rem))] w-full max-w-full rounded-lg border xl:block"
         ></iframe>
       </div>
     </aside>
